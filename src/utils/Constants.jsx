@@ -1,0 +1,6 @@
+export const texts = [
+  "MOST RELAXING PLACE",
+  "THE BEST ESCAPE",
+  "A PERFECT GETAWAY",
+  "YOUR HOME AWAY FROM HOME",
+];
