@@ -1,9 +1,26 @@
-import { Button, HStack, Image } from "@chakra-ui/react";
+import {
+  Button,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  HStack,
+  IconButton,
+  Image,
+  Text,
+  useDisclosure,
+  VStack,
+} from "@chakra-ui/react";
 import React from "react";
 import logo from "../assets/images/bestend-high-resolution-logo-white-transparent.png";
 import { Link } from "react-router-dom";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
 const Navbar = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
       <HStack
@@ -13,9 +30,19 @@ const Navbar = () => {
         justifyContent="space-between"
         alignItems="center"
       >
-        <Image src={logo} alt="logo" w="10rem" h="auto" />
+        <Image
+          src={logo}
+          alt="logo"
+          w={{ md: "10rem", base: "5rem" }}
+          h="auto"
+        />
 
-        <HStack w="50vw" justifyContent="space-between" mr="4rem">
+        <HStack
+          display={{ md: "flex", base: "none" }}
+          w="50vw"
+          justifyContent="space-between"
+          mr="4rem"
+        >
           <Link to="/">
             <Button
               variant="unstyled"
@@ -83,6 +110,98 @@ const Navbar = () => {
             </Button>
           </Link>
         </HStack>
+
+        <IconButton
+          onClick={onOpen}
+          bg="white"
+          aria-label="drawer menu"
+          icon={<HamburgerIcon />}
+        />
+
+        <Drawer isOpen={isOpen} onClose={onClose}>
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerCloseButton />
+            <DrawerHeader>Menu</DrawerHeader>
+
+            <DrawerBody>
+              <VStack
+                alignItems="flex-start"
+                w="100%"
+                pt="2rem"
+                h="100%"
+                spacing={5}
+              >
+                <Button
+                  alignItems="center"
+                  justifyContent="flex-start"
+                  p={0}
+                  w="100%"
+                  variant="ghost"
+                  fontSize="1.4rem"
+                  fontFamily="Prata"
+                >
+                  <Link to="/">Home</Link>
+                </Button>
+                <Button
+                  alignItems="center"
+                  justifyContent="flex-start"
+                  p={0}
+                  w="100%"
+                  variant="ghost"
+                  fontSize="1.4rem"
+                  fontFamily="Prata"
+                >
+                  <Link to="/about">About</Link>
+                </Button>
+                <Button
+                  alignItems="center"
+                  justifyContent="flex-start"
+                  p={0}
+                  w="100%"
+                  variant="ghost"
+                  fontSize="1.4rem"
+                  fontFamily="Prata"
+                >
+                  <Link to="/rooms">Rooms</Link>
+                </Button>
+                <Button
+                  alignItems="center"
+                  justifyContent="flex-start"
+                  p={0}
+                  w="100%"
+                  variant="ghost"
+                  fontSize="1.4rem"
+                  fontFamily="Prata"
+                >
+                  <Link to="/resto-and-bar">Resto & Bar</Link>
+                </Button>
+                <Button
+                  alignItems="center"
+                  justifyContent="flex-start"
+                  p={0}
+                  w="100%"
+                  variant="ghost"
+                  fontSize="1.4rem"
+                  fontFamily="Prata"
+                >
+                  <Link to="/blog">Blog</Link>
+                </Button>
+                <Button
+                  alignItems="center"
+                  justifyContent="flex-start"
+                  p={0}
+                  w="100%"
+                  variant="ghost"
+                  fontSize="1.4rem"
+                  fontFamily="Prata"
+                >
+                  <Link to="/contact">Contact</Link>
+                </Button>
+              </VStack>
+            </DrawerBody>
+          </DrawerContent>
+        </Drawer>
       </HStack>
     </>
   );

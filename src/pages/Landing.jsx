@@ -90,7 +90,7 @@ const Landing = () => {
         >
           <Navbar />
 
-          <VStack mt="9rem" spacing={0}>
+          <VStack mt={{ md: "9rem", base: "5rem" }} spacing={0}>
             <Text
               mb="-9"
               p="1rem"
@@ -99,17 +99,22 @@ const Landing = () => {
               fontWeight="600"
               letterSpacing="2px"
               fontFamily="Prata"
+              fontSize={{ md: "1rem", base: ".6rem" }}
+              textAlign="center"
             >
               ENJOY YOUR WONDERFUL STAY WITH A GREAT LUXURY EXPERIENCE
             </Text>
 
             <Text
-              fontSize="4.5rem"
+              fontSize={{ md: "4.5rem", base: "2rem" }}
               fontWeight="700"
               color="#fff"
               textTransform="uppercase"
               letterSpacing="1px"
               transition="opacity 0.5s ease"
+              textAlign="center"
+              my={{ base: "4rem" }}
+              mx={{ base: ".5rem" }}
             >
               {currentText}
             </Text>
@@ -131,9 +136,26 @@ const Landing = () => {
             </Button>
           </HStack>
 
-          <HStack position="relative" top="5rem" w="80vw" bg="#000" zIndex="2">
+          <HStack
+            borderRadius="8px"
+            position="relative"
+            top="5rem"
+            w="80vw"
+            bg={{ md: "#000", base: "rgba(0, 0, 0, 0.79)" }}
+            zIndex="2"
+            boxShadow="0 4px 30px rgba(0, 0, 0, 0.1)"
+            backdropFilter="blur(13.1px)"
+            border="1px solid rgba(0, 0, 0, 0.3)"
+
+            // border-radius: 16px;
+          >
             <form onSubmit={handleAvailabilityCheck}>
-              <HStack h="100%" spacing={0} justifyContent="space-between">
+              <HStack
+                display={{ md: "flex", base: "none" }}
+                h="100%"
+                spacing={0}
+                justifyContent="space-between"
+              >
                 <HStack
                   py="3.5rem"
                   pl="2rem"
@@ -250,10 +272,134 @@ const Landing = () => {
                   </VStack>
                 </Button>
               </HStack>
+              <VStack
+                p=".5rem"
+                pr="1rem"
+                justifyContent="center"
+                w="82vw"
+                display={{ md: "none", base: "flex" }}
+                spacing={6}
+              >
+                <HStack w="100%" justifyContent="space-between">
+                  <VStack w="45%">
+                    <FormControl>
+                      <VStack alignItems="flex-start">
+                        <FormLabel textTransform="uppercase" color="#fff">
+                          CHECK-IN
+                        </FormLabel>
+                        <InputGroup>
+                          <Input
+                            color="#fff"
+                            type="date"
+                            placeholder="Select Date"
+                            _placeholder={{ color: "#fff" }}
+                          />
+                          <InputRightElement pointerEvents="none">
+                            <CalendarIcon color="white" />
+                          </InputRightElement>
+                        </InputGroup>
+                      </VStack>
+                    </FormControl>
+
+                    <FormControl>
+                      <VStack alignItems="flex-start">
+                        <FormLabel textTransform="uppercase" color="#fff">
+                          ROOMS
+                        </FormLabel>
+                        <Select color="#fff">
+                          <option value="">STANDARD</option>
+                          <option value="">DELUXE</option>
+                          <option value="">EXECUTIVE</option>
+                          <option value="">SUITE</option>
+                        </Select>
+                      </VStack>
+                    </FormControl>
+                  </VStack>
+                  <VStack w="45%">
+                    <FormControl w="100%">
+                      <VStack w="100%" alignItems="flex-start">
+                        <FormLabel textTransform="uppercase" color="#fff">
+                          CHECK-OUT
+                        </FormLabel>
+                        <InputGroup>
+                          <Input
+                            color="#fff"
+                            w="100%"
+                            type="date"
+                            placeholder="Select Date"
+                            _placeholder={{ color: "#fff" }}
+                          />
+                          <InputRightElement pointerEvents="none">
+                            <CalendarIcon color="white" />
+                          </InputRightElement>
+                        </InputGroup>
+                      </VStack>
+                    </FormControl>
+
+                    <FormControl>
+                      <VStack alignItems="flex-start">
+                        <FormLabel textTransform="uppercase" color="#fff">
+                          GUESTS
+                        </FormLabel>
+                        <Select color="#fff" w="max-content">
+                          <option
+                            style={{ backgroundColor: "#222", color: "#fff" }}
+                            value=""
+                          >
+                            1 Person
+                          </option>
+                          <option
+                            style={{ backgroundColor: "#222", color: "#fff" }}
+                            value=""
+                          >
+                            2 Persons
+                          </option>
+                          <option
+                            style={{ backgroundColor: "#222", color: "#fff" }}
+                            value=""
+                          >
+                            3-5 Persons
+                          </option>
+                          <option
+                            style={{ backgroundColor: "#222", color: "#fff" }}
+                            value=""
+                          >
+                            6-10 Persons
+                          </option>
+                          <option
+                            style={{ backgroundColor: "#222", color: "#fff" }}
+                            value=""
+                          >
+                            10+ Persons
+                          </option>
+                        </Select>
+                      </VStack>
+                    </FormControl>
+                  </VStack>
+                </HStack>
+
+                <Button
+                  textTransform="uppercase"
+                  w="100%"
+                  bg="#C5A880"
+                  color="#fff"
+                  _hover={{ bg: "#edf2f7", color: "#000" }}
+                  type="submit"
+                >
+                  Check Availability
+                </Button>
+              </VStack>
             </form>
           </HStack>
 
-          <VStack pt="10rem" pb="5rem" bg="#fff" w="100%" alignItems="center">
+          <VStack
+            display={{ md: "flex", base: "none" }}
+            pt="10rem"
+            pb="5rem"
+            bg="#fff"
+            w="100%"
+            alignItems="center"
+          >
             <HStack w="80vw" gap="3rem" mb="7rem">
               <HStack w="50%">
                 <VStack spacing="1rem">
@@ -392,6 +538,106 @@ const Landing = () => {
             </VStack>
           </VStack>
 
+          <VStack
+            display={{ md: "none", base: "flex" }}
+            pt="10rem"
+            pb="5rem"
+            px="1rem"
+            bg="#fff"
+            w="100%"
+            alignItems="center"
+          >
+            <VStack alignItems="flex-start">
+              <Text textTransform="uppercase" fontWeight="700" color="#C5A880">
+                ABOUT US
+              </Text>
+              <Text mb="2rem" fontFamily="Prata" fontSize="2.5rem">
+                An elegant stay in Lagos's central district{" "}
+                <Button
+                  display="inline-block"
+                  bg="#C5A880"
+                  color="#fff"
+                  textTransform="uppercase"
+                  ml="1rem"
+                >
+                  Book Now
+                </Button>
+              </Text>
+              <Text fontWeight="300" mb="3rem">
+                Set on picturesque landscaped environment, our hotel sits at the
+                heart of Nigeria's busiest city - Gbagada, Lagos. We're within
+                20 minutes of the International Airport and Lagos Island. Enjoy
+                our on-site massage therapists, resto and bar, serene
+                environment, and dedicated staff.
+              </Text>
+            </VStack>
+            <HStack>
+              <VStack>
+                <VStack
+                  spacing={0}
+                  alignItems="center"
+                  justifyContent="center"
+                  p="1.5rem"
+                  bg="#F5F1EA"
+                  borderRadius="1rem"
+                >
+                  <Image pl="1.5rem" src={pillow} alt="pillow" />
+                  <Text
+                    mb="0.5rem"
+                    fontFamily="Playfair Display"
+                    fontSize="1.5rem"
+                  >
+                    Cozy Room
+                  </Text>
+                  <Text textAlign="center">
+                    Experience comfort and warmth in our cozy room, designed for
+                    relaxation with soft bedding, modern amenities, and a
+                    peaceful ambiance—perfect for unwinding after a long day.
+                  </Text>
+                </VStack>
+
+                <Image
+                  borderRadius="1rem"
+                  src={stock1}
+                  alt="pillow"
+                  w="15rem"
+                />
+              </VStack>
+              <VStack>
+                <Image
+                  src={stock2}
+                  borderRadius="1rem"
+                  alt="pillow"
+                  w="15rem"
+                />
+
+                <VStack
+                  spacing={0}
+                  alignItems="center"
+                  justifyContent="center"
+                  p="1.5rem"
+                  bg="#F5F1EA"
+                  borderRadius="1rem"
+                >
+                  <Image pl="1.5rem" src={offer} alt="pillow" />
+                  <Text
+                    mb="0.5rem"
+                    fontFamily="Playfair Display"
+                    fontSize="1.5rem"
+                    textAlign="center"
+                  >
+                    Special Offers
+                  </Text>
+                  <Text textAlign="center">
+                    Discover exclusive deals and limited-time offers! Enjoy
+                    discounted rates, complimentary perks, and more—book now and
+                    make your stay even more memorable.
+                  </Text>
+                </VStack>
+              </VStack>
+            </HStack>
+          </VStack>
+
           <HStack
             w="100%"
             bg="rgba(0, 0, 0, 0.85)"
@@ -429,7 +675,11 @@ const Landing = () => {
             <Text fontFamily="Prata" fontSize="2.5rem" mb="2rem">
               Featured Rooms
             </Text>
-            <HStack w="80vw" gap="1.5rem">
+            <Stack
+              direction={{ md: "row", base: "column" }}
+              w="80vw"
+              gap="1.5rem"
+            >
               <VStack
                 bg="#f5f5f5"
                 color="#000"
@@ -452,7 +702,7 @@ const Landing = () => {
                 </VStack>
                 <Image src={suite} alt="suite" />
               </VStack>
-              <VStack
+              <Stack
                 bg="#f5f5f5"
                 color="#000"
                 transition="background 0.5s ease, color 0.5s ease, transform 0.5s ease"
@@ -460,6 +710,7 @@ const Landing = () => {
                   bg: "#000",
                   color: "#fff",
                 }}
+                direction={{ md: "column", base: "column-reverse" }}
               >
                 <Image src={family} alt="suite" />
                 <VStack p="3rem 3rem 1rem 3rem">
@@ -473,7 +724,7 @@ const Landing = () => {
                   </Text>
                   <Button>BOOK NOW</Button>
                 </VStack>
-              </VStack>
+              </Stack>
               <VStack
                 bg="#f5f5f5"
                 color="#000"
@@ -496,7 +747,7 @@ const Landing = () => {
                 </VStack>
                 <Image src={deluxe} alt="suite" />
               </VStack>
-            </HStack>
+            </Stack>
           </VStack>
 
           <Box w="100%" h="70vh" position="relative">
@@ -564,6 +815,7 @@ const Landing = () => {
                 w="730px"
                 h="300px"
                 objectFit="cover"
+                display={{ md: "flex", base: "none" }}
               />
               <Box w="500px">
                 <SlidingCarousel />
