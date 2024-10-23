@@ -21,6 +21,7 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <>
       <HStack
@@ -42,6 +43,13 @@ const Navbar = () => {
           w="50vw"
           justifyContent="space-between"
           mr="4rem"
+          h="100%"
+          px="1.5rem"
+          borderRadius="8px"
+          bg="rgba(197, 168, 128, 0.2)"
+          boxShadow="0 4px 30px rgba(0, 0, 0, 0.1)"
+          backdropFilter="blur(5px)"
+          border="1px solid rgba(255, 255, 255, 0.3)"
         >
           <Link to="/">
             <Button
@@ -116,6 +124,7 @@ const Navbar = () => {
           bg="white"
           aria-label="drawer menu"
           icon={<HamburgerIcon />}
+          display={{ md: "none", base: "flex" }}
         />
 
         <Drawer isOpen={isOpen} onClose={onClose}>

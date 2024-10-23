@@ -1,10 +1,10 @@
 import { Box, Text, VStack } from "@chakra-ui/react";
 import React from "react";
-import bgImg from "../assets/images/rooms_bg.jpg";
+import bgImg from "../assets/images/blog_bg.jpg";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const Rooms = () => {
+const Blog = () => {
   return (
     <>
       <Box
@@ -27,7 +27,7 @@ const Rooms = () => {
 
           <VStack py="10rem">
             <Text color="white" fontSize="1rem" fontWeight="600">
-              Home &gt; Rooms &gt;
+              Home &gt; Blog &gt;
             </Text>
             <Text
               color="white"
@@ -35,7 +35,7 @@ const Rooms = () => {
               fontFamily="Prata"
               fontWeight="600"
             >
-              Rooms
+              Blog
             </Text>
           </VStack>
 
@@ -52,4 +52,4 @@ const Rooms = () => {
   );
 };
 
-export default Rooms;
+export default Blog;

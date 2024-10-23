@@ -80,6 +80,7 @@ const Landing = () => {
         overflowY="auto"
         overflowX="hidden"
         mb="3rem"
+        bgSize="cover"
       >
         <VStack
           w="100%"
@@ -92,7 +93,7 @@ const Landing = () => {
 
           <VStack mt={{ md: "9rem", base: "5rem" }} spacing={0}>
             <Text
-              mb="-9"
+              mb="1rem"
               p="1rem"
               textTransform="uppercase"
               color="#fff"
@@ -113,7 +114,7 @@ const Landing = () => {
               letterSpacing="1px"
               transition="opacity 0.5s ease"
               textAlign="center"
-              my={{ base: "4rem" }}
+              my={{ md: "1rem", base: "4rem" }}
               mx={{ base: ".5rem" }}
             >
               {currentText}
