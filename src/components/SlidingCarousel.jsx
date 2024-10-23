@@ -135,7 +135,7 @@ const SlidingCarousel = () => {
     const interval = setInterval(() => {
       setOffset((prevOffset) => {
         // Move to the left by 1px per interval
-        const newOffset = prevOffset - 50;
+        const newOffset = prevOffset - 2;
         // Reset to 0 when all items have scrolled past (with no jump effect)
         return newOffset <= -totalWidth ? 0 : newOffset;
       });
